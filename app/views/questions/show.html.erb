@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-body">
+    <div class="media">
+        <img class="mr-3" src="<%= @question.gravatar %>" alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0"><%= @question.email %> asked:</h5>
+            <%= @question.body %>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div>
+    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#answerModal">Submit new answer</a>
+</div>
+
+<% @answers.each do |answer| %>
+    <div class="media">
+        <img class="mr-3" src="<%= answer.gravatar %>" alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0"><%= answer.email %> answered:</h5>
+            <%= time_ago_in_words answer.created_at %> ago
+            <br/>
+            <%= answer.body %>
+        </div>
+    </div>
+    <br/>
+<% end %>
+
+<%= render 'home/new_answer_form' %>

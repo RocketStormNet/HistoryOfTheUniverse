@@ -2,35 +2,18 @@
   <h4 class="alert-heading">Well done!</h4>
   <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
 </div>
+<% @questions.each do |q| %>
 <div class="media">
-  <img class="mr-3" src="https://placeimg.com/64/64/animals" alt="Generic placeholder image">
+  <img class="mr-3" src="<%= q.gravatar %>" alt="Generic placeholder image">
   <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <h5 class="mt-0"><%= q.email %> asked:</h5>
+        <%= time_ago_in_words q.created_at %> ago
+        <br/>
+        <%= q.body %>
     <div>
-        <a href="/questions/10" class="btn btn-success btn-sm">View Answers</a>
+        <a href="<%= question_path(q) %>" class="btn btn-success btn-sm">View Answers</a>
     </div>
   </div>
 </div>
 <br/>
-<div class="media">
-  <img class="mr-3" src="https://placeimg.com/64/64/animals" alt="Generic placeholder image">
-  <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    <div>
-        <a href="/questions/10" class="btn btn-success btn-sm">View Answers</a>
-    </div>
-  </div>
-</div>
-<br/>
-<div class="media">
-  <img class="mr-3" src="https://placeimg.com/64/64/animals" alt="Generic placeholder image">
-  <div class="media-body">
-    <h5 class="mt-0">Media heading</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    <div>
-        <a href="/questions/10" class="btn btn-success btn-sm">View Answers</a>
-    </div>
-  </div>
-</div>
+<% end %>
