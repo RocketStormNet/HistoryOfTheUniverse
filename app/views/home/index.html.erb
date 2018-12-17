@@ -17,3 +17,7 @@
 </div>
 <br/>
 <% end %>
+
+<% if @questions.empty? %>
+    <div class="alert alert-info" role="alert">Nothing here yet...</div>
+<% end %>
